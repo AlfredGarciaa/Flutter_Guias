@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
-void main() {
-  debugPaintSizeEnabled = true;
-  runApp(const TemperatureConverter());
-}
+void main() => runApp(const MyApp());
 
-class TemperatureConverter extends StatelessWidget {
-  const TemperatureConverter({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   build(BuildContext context) {
@@ -60,32 +56,13 @@ class TempState extends State<TempApp> {
     );
 
     AppBar appBar = AppBar(
-      title: const Text('Temperature Converter'),
+      title: const Text("Temperature Calculator"),
     );
 
     Container tempSwitch = Container(
       padding: const EdgeInsets.all(15.0),
       child: Row(
         children: <Widget>[
-          //Text("Choose Fahrenheit or Celsius"),
-          //Switch(
-          //  value: fOrC,
-          //  onChanged: (e) {
-          //    setState(() {
-          //      fOrC = !fOrC;
-          //    });
-          //  },
-          //)
-
-          //Checkbox(
-          //  value: fOrC,
-          //  onChanged: (e) {
-          //    setState(() {
-          //      fOrC = !fOrC;
-          //    });
-          //  },
-          //),
-
           const Text("F"),
           Radio<bool>(
               groupValue: fOrC,
@@ -124,7 +101,7 @@ class TempState extends State<TempApp> {
                 : Text(
                 "${input.toStringAsFixed(2)} C : ${output.toStringAsFixed(2)} F"),
           );
-          showDialog(context: context, builder: dialog)
+          //showDialog(context: context, builder: dialog);
         },
       ),
     );
@@ -144,4 +121,3 @@ class TempState extends State<TempApp> {
     );
   }
 }
-
